@@ -1,6 +1,6 @@
 <?php 
 
-require_once("model/Presidente.php");
+require_once("modelo/Presidente.php");
 
 function linhaPresidente(Presidente $pre) {
     echo "<tr>";
