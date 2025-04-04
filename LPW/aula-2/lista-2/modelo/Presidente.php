@@ -1,88 +1,78 @@
+<?php
 
-<?php 
+class Presidente {
 
-class Presidente{
-    private $num;
-    private $nome;
-    private $inicio;
-    private $fim;
+    private int $numero;
+    private string $nome;
+    private int $inicio;
+    private int $fim;
+    private string $foto;
 
-
-    public function __construct($num, $nome, $inicio, $fim){
-        $this->num = $num;
-        $this->nome = $nome;
-        $this->inicio = $inicio;
-        $this->fim = $fim;
+    public function __construct($num, $nm, $i, $f, $foto) {
+        $this->numero = $num;
+        $this->nome = $nm;
+        $this->inicio = $i;
+        $this->fim = $f;
+        $this->foto = $foto;
     }
 
-    /**
-     * Get the value of num
-     */
-    public function getNum()
+
+    public function getNumero(): int
     {
-        return $this->num;
+        return $this->numero;
     }
 
-    /**
-     * Set the value of num
-     */
-    public function setNum($num): self
+    public function setNumero(int $numero): self
     {
-        $this->num = $num;
+        $this->numero = $numero;
 
         return $this;
     }
 
-    /**
-     * Get the value of nome
-     */
-    public function getNome()
+    public function getNome(): string
     {
         return $this->nome;
     }
 
-    /**
-     * Set the value of nome
-     */
-    public function setNome($nome): self
+    public function setNome(string $nome): self
     {
         $this->nome = $nome;
 
         return $this;
     }
 
-    /**
-     * Get the value of inicio
-     */
-    public function getInicio()
+    public function getInicio(): int
     {
         return $this->inicio;
     }
 
-    /**
-     * Set the value of inicio
-     */
-    public function setInicio($inicio): self
+    public function setInicio(int $inicio): self
     {
         $this->inicio = $inicio;
 
         return $this;
     }
 
-    /**
-     * Get the value of fim
-     */
-    public function getFim()
+    public function getFim(): int
     {
         return $this->fim;
     }
 
-    /**
-     * Set the value of fim
-     */
-    public function setFim($fim): self
+    public function setFim(int $fim): self
     {
         $this->fim = $fim;
+
+        return $this;
+    }
+
+    public function getFoto(): string
+    {
+        return $this->foto;
+    }
+
+    public function setFoto(string $foto): self
+    {
+        $this->foto = $foto;
 
         return $this;
     }

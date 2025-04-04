@@ -1,125 +1,61 @@
-<?php 
+<?php
 
-class Pokemon{
-    private $nome;
-    private $altura;
-    private $peso;
-    private $tipo;
-    private $imagem;
-    private $link;
+class Pokemon {
 
-    public function __construct($nome, $altura, $peso, $tipo, $imagem, $link){
-        $this->nome = $nome;
-        $this->altura = $altura;
-        $this->peso = $peso;
-        $this->tipo = $tipo;
+    private string $imagem;
+    private string $nome;
+    private string $tipo;
+    private string $link;
+
+    public function __construct($imagem, $nome, $tipo, $link) {
         $this->imagem = $imagem;
-        $this->link = $link;
-        }
-
-
-    /**
-     * Get the value of nome
-     */
-    public function getNome()
-    {
-        return $this->nome;
-    }
-
-    /**
-     * Set the value of nome
-     */
-    public function setNome($nome): self
-    {
         $this->nome = $nome;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of altura
-     */
-    public function getAltura()
-    {
-        return $this->altura;
-    }
-
-    /**
-     * Set the value of altura
-     */
-    public function setAltura($altura): self
-    {
-        $this->altura = $altura;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of peso
-     */
-    public function getPeso()
-    {
-        return $this->peso;
-    }
-
-    /**
-     * Set the value of peso
-     */
-    public function setPeso($peso): self
-    {
-        $this->peso = $peso;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of tipo
-     */
-    public function getTipo()
-    {
-        return $this->tipo;
-    }
-
-    /**
-     * Set the value of tipo
-     */
-    public function setTipo($tipo): self
-    {
         $this->tipo = $tipo;
-
-        return $this;
+        $this->link = $link;
     }
 
-    /**
-     * Get the value of imagem
-     */
-    public function getImagem()
+    public function getImagem(): string
     {
         return $this->imagem;
     }
 
-    /**
-     * Set the value of imagem
-     */
-    public function setImagem($imagem): self
+    public function setImagem(string $imagem): self
     {
         $this->imagem = $imagem;
 
         return $this;
     }
 
-    /**
-     * Get the value of link
-     */
-    public function getLink()
+    public function getNome(): string
+    {
+        return $this->nome;
+    }
+
+    public function setNome(string $nome): self
+    {
+        $this->nome = $nome;
+
+        return $this;
+    }
+
+    public function getTipo(): string
+    {
+        return $this->tipo;
+    }
+
+    public function setTipo(string $tipo): self
+    {
+        $this->tipo = $tipo;
+
+        return $this;
+    }
+
+    public function getLink(): string
     {
         return $this->link;
     }
 
-    /**
-     * Set the value of link
-     */
-    public function setLink($link): self
+    public function setLink(string $link): self
     {
         $this->link = $link;
 

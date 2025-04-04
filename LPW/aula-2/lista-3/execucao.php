@@ -1,61 +1,37 @@
-<?php
-require_once('model/Pokemon.php');
+<?php 
 
-$pikachu = new Pokemon("Pikachu", "60cm", "10kg", "Elétrico", "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png", "https://www.pokemon.com/br/pokedex/pikachu");
+require_once("model/Pokemon.php");
 
-$bulbasaur = new Pokemon("Bulbassaur", "50cm", "15kg", "Planta", "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png", "https://www.pokemon.com/br/pokedex/bulbasaur");
-
-$squirtle = new Pokemon("Squirtle", "80cm", "25kg", "Água", "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png", "https://www.pokemon.com/br/pokedex/squirtle");
-
-$charizard = new Pokemon("Charizard", "1.90m", "300kg", "Fogo", "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/006.png", "https://www.pokemon.com/br/pokedex/charizard");
-
-$Pokemons = [$pikachu, $bulbasaur, $squirtle, $charizard];
-
-
-function desenhaLinha(Pokemon $pokemon) {
-    print "<tr>";
-    print "<td>" . $pokemon->getNome() . "</td>";
-    print "<td><img src='" . $pokemon->getImagem() . "' alt='" . $pokemon->getNome() . "' width='100' height='100'></td>";
-    print "<td>" . $pokemon->getAltura() . "</td>";
-    print "<td>" . $pokemon->getPeso() . "</td>";
-    print "<td>" . $pokemon->getTipo() . "</td>";
-    print "<td><a href='" . $pokemon->getLink() . "' target='_blank'>Link</a></td>";
-    print "</tr>";
+function linhaPokemon(Pokemon $poke) {
+    echo "<tr>";
+    echo "<td><img src='" . $poke->getImagem() . "' height='100' /></td>";
+    echo "<td>" . $poke->getNome() . "</td>";
+    echo "<td>" . $poke->getTipo() . "</td>";
+    echo "<td><a href='" . $poke->getLink() . "' target='_blank'>Pokepedia</a></td>";
+    echo "</tr>";
 }
 
-print "<table border=1>";
+//Declarar os objetos
+$p1 = new Pokemon("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png", "Bulbasaur", "Grama/Venenoso", "https://pokepedia-graphql.netlify.app/pokemon/bulbasaur");
+$p2 = new Pokemon("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png", "Charmander", "Fogo", "https://pokepedia-graphql.netlify.app/pokemon/charmander");
+$p3 = new Pokemon("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png", "Charizard", "Fogo/Voador", "https://pokepedia-graphql.netlify.app/pokemon/charizard");
+$p4 = new Pokemon("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png", "Onix", "Pedra/Terra", "https://pokepedia-graphql.netlify.app/pokemon/onix");
+$p5 = new Pokemon("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png", "Rapidash", "Fogo", "https://pokepedia-graphql.netlify.app/pokemon/rapidash");
 
-print "<tr>";
-print "<td>Nome</td>";
-print "<td>Imagem</td>";
-print "<td>Altura</td>";
-print "<td>Peso</td>";
-print "<td>Tipo</td>";
-print "<td>Link</td>";
-print "</tr>";
+$pokemons = array($p1, $p2, $p3, $p4, $p5);
 
-foreach($Pokemons as $pokemon) {
-    desenhaLinha($pokemon);
+//Cabeçalho
+echo "<table border=1>";
+echo "<tr>";
+echo "<th>Imagem</th>";
+echo "<th>Nome</th>";
+echo "<th>Tipo</th>";
+echo "<th></th>";
+echo "</tr>";
+
+//Gerar as linhas com os dados
+foreach($pokemons as $p) {
+    linhaPokemon($p);
 }
 
-print "</table>";
-?>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémons</title>
-    <style>
-        * {
-            font-family: Arial, sans-serif;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-    </style>
-</head>
-</html>
+echo "</table>";
