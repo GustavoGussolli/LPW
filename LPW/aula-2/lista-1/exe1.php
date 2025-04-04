@@ -1,82 +1,56 @@
-<?php 
+<?php
 
-function desenhaLinha(array $dadosMedalhas){
+//Função - Desenha um linha com base nos dados recebidos por parâmetro
+function desenhaLinha(array $linha) {
     echo "<tr>";
-    echo "<td>{$dadosMedalhas["ordem"]}</td>";
-    echo "<td><img class='flag' src='{$dadosMedalhas["imagem"]}'></td>";
-    echo "<td>{$dadosMedalhas["país"]}</td>";
-    echo "<td>{$dadosMedalhas["ouro"]}</td>";
-    echo "<td>{$dadosMedalhas["prata"]}</td>";
-    echo "<td>{$dadosMedalhas["bronze"]}</td>";
-    echo "<td>{$dadosMedalhas["total"]}</td>";
+    echo "<td>" . $linha["ordem"] . "</td>";
+    
+    echo "<td>";
+    echo "<img src='" . $linha["bandeira"] . "' >" . $linha["pais"];
+    echo "</td>";
+    
+    echo "<td>" . $linha["ouro"] . "</td>";
+    echo "<td>" . $linha["prata"] . "</td>";
+    echo "<td>" . $linha["bronze"] . "</td>";
+    echo "<td>" . $linha["total"] . "</td>";
     echo "</tr>";
 }
 
-$linhas = [
-    [
-        "ordem" => 0, "imagem" => 'https://gstatic.olympics.com/s1/t_s_pog_flag/f_auto/static/flag/4x3/br',
-        "país" => "Brasil", "ouro" => 100, "prata" => 100, "bronze" => 100, "total" => 300
-    ],
-    [
-        "ordem" => 1, "imagem" => 'https://gstatic.olympics.com/s1/t_s_pog_flag/f_auto/static/flag/4x3/us',
-        "país" => "Estados Unidos", "ouro" => 46, "prata" => 37, "bronze" => 38, "total" => 121
-    ],
-    [
-        "ordem" => 2, "imagem" => 'https://gstatic.olympics.com/s1/t_s_pog_flag/f_auto/static/flag/4x3/cn',
-        "país" => "China", "ouro" => 40, "prata" => 27, "bronze" => 24, "total" => 91
-    ],
-    [
-        "ordem" => 3, "imagem" => 'https://gstatic.olympics.com/s1/t_s_pog_flag/f_auto/static/flag/4x3/gb',
-        "país" => "Grã-Bretanha", "ouro" => 14, "prata" => 22, "bronze" => 29, "total" => 65
-    ],
-    [
-        "ordem" => 4, "imagem" => 'https://gstatic.olympics.com/s1/t_s_pog_flag/f_auto/static/flag/4x3/fr',
-        "país" => "França", "ouro" => 16, "prata" => 26, "bronze" => 22, "total" => 64
-    ],
-    [
-        "ordem" => 5, "imagem" => 'https://gstatic.olympics.com/s1/t_s_pog_flag/f_auto/static/flag/4x3/au',
-        "país" => "Austrália", "ouro" => 18, "prata" => 29, "bronze" => 16, "total" => 53
-    ]
-];
 
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        }
-        .flag {
-            width: 50px;
-        }
-        .medal {
-            width: 25px;
-        }
-    </style>
-</head>
-<body>
-    <table>
-        <thead>
-            <tr>
-                <th>Ordem</th>
-                <th>Imagem</th>
-                <th>País</th>
-                <th><img class='medal' src='https://upload.wikimedia.org/wikipedia/commons/1/15/Gold_medal.svg'></th>
-                <th><img class='medal' src='https://upload.wikimedia.org/wikipedia/commons/0/03/Silver_medal.svg'></th>
-                <th><img class='medal' src='https://upload.wikimedia.org/wikipedia/commons/5/52/Bronze_medal.svg'></th>
-                <th><img class='medal' src='https://upload.wikimedia.org/wikipedia/commons/5/5e/GoldSilverBronze_medals.svg'></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($linhas as $pais) { desenhaLinha($pais); } ?>
-        </tbody>
-    </table>
-</body>
-</html>
+//A - Declarando os 5 arrays associativos (um para cada linha)
+$linha1 = array("ordem" => 1, "pais" => "EUA", "ouro" => 46, 
+                "prata" => 37, "bronze" => 38, "total" => 121,
+                "bandeira" => "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/22px-Flag_of_the_United_States.svg.png");
+$linha2 = array("ordem" => 2, "pais" => "GBR", "ouro" => 27, 
+                "prata" => 23, "bronze" => 17, "total" => 67,
+                "bandeira" => "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/22px-Flag_of_the_United_Kingdom_%283-5%29.svg.png");
+$linha3 = array("ordem" => 3, "pais" => "CHN", "ouro" => 26, 
+                "prata" => 18, "bronze" => 26, "total" => 70,
+                "bandeira" => "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/22px-Flag_of_the_People%27s_Republic_of_China.svg.png");
+$linha4 = array("ordem" => 4, "pais" => "RUS", "ouro" => 19, 
+                "prata" => 17, "bronze" => 20, "total" => 56,
+                "bandeira" => "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/22px-Flag_of_Russia.svg.png");
+$linha5 = array("ordem" => 5, "pais" => "ALE", "ouro" => 17, 
+                "prata" => 10, "bronze" => 15, "total" => 42,
+                "bandeira" => "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/22px-Flag_of_Germany.svg.png");
+
+//B - Criando a matriz
+$linhas = array($linha1, $linha2, $linha3, $linha4, $linha5);
+
+echo "<table border=1>";
+
+//Cabeçalho
+echo "<tr>";
+echo "<td>Ordem</td>";
+echo "<td>País</td>";
+echo "<td>Ouro</td>";
+echo "<td>Prata</td>";
+echo "<td>Bronze</td>";
+echo "<td>Total</td>";
+echo "</tr>";
+
+//C - Percorrendo a matriz para gerar as linhas da tabela (chamar função)
+foreach($linhas as $l) 
+    desenhaLinha($l);
+
+echo "</table>";
