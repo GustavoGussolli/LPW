@@ -1,6 +1,6 @@
 <?php 
 
-require_once("model/Pokemon.php");
+require_once("modelo/Pokemon.php");
 
 function linhaPokemon(Pokemon $poke) {
     echo "<tr>";
